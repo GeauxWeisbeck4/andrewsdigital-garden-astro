@@ -1,13 +1,57 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+const pageTitle = "About Andrew";
+
+const identity = {
+    name: "Andrew Weisbeck",
+    location: "in a tent in Durham, North Carolina",
+    occupation: "Freelance Web Developer",
+    hobbies: ["learning", "reading", "watching sports"],
+    relationship: "the love of my life, Lisa",
+}
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Python", "Marketing", "Entrepreneurship", "Node.js"];
+const teams = ["Nebraska Cornhuskers", "LSU Tigers", "North Carolina Tar Heels", "Kansas City Royals", "New England Patriots", "Kansas City Chiefs", "Minnesota Timberwolves", "Carolina Hurricanes", "Chelsea FC"]
+
+const primary = "#0698F9";
+const primaryTwo = "#40A7F2";
+const dark = "#022459";
+const green = "#22EF10";
+const neonGreen = "#10EFDD";
+const hotPink = "#EF1091";
+const yellow = "#91EF10";
+const purple = "#DD10EF";
+const orange = "#EF6E10";
+---
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro</title>
+    <title>{pageTitle}</title>
+  </head>
+  <style define:vars={{primary, primaryTwo, dark, green, neonGreen, hotPink, yellow, purple, orange}}>
+    h1 {
+        color: #1091ef;
+        font-size: 3rem;
+    }
+  </style>
 <body>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
-    <a href="/projects">Projects</a>
-    <a href="/notes">Notes</a>
-    <a href="/contact">Contact</a>
+    <Navigation />
 
     <h1>About Andrew</h1>
-    <p>I am a full stack web developer and entrepreneur who currently resides in Durham, North Carolina. My passions include coding, sports, animals, technology, business, psychology, politics, and learning. I have been with my life partner Lisa for three years and we plan on getting hitched once we get off the streets, hopefully soon.</p>
+
+       <p>My name is {identity.name} and I live {identity.location} with {identity.relationship}. I'm currently doing work as a {identity.occupation}, but am seeking full-time work to help get off the streets. A few of my hobbies are: {identity.hobbies[0]}, {identity.hobbies[1]}, and {identity.hobbies[2]}. </p>
+
+       
+
+       <p>My Skills are:</p>
+       <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+       </ul>
+    
+    
     <h2>Random Facts</h2>
     <ul>
         <li>Graduated from the University of Nebraska-Lincoln in 2014</li>
@@ -18,14 +62,7 @@
     </ul>
     <h2>Favorite Teams</h2>
     <ul>
-        <li>Nebraska Cornhuskers</li>
-        <li>LSU Tigers</li>
-        <li>North Carolina Tar Heels</li>
-        <li>Kansas City Royals</li>
-        <li>New England Patriots</li>
-        <li>Kansas City Chiefs</li>
-        <li>Minnesota Timberwolves</li>
-        <li>Chelsea FC</li>
-        <li>Carolina Hurricanes</li>
+        {teams.map((team) => <li>{team}</li>)}
     </ul>
 </body>
+</html>
